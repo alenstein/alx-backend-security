@@ -10,3 +10,12 @@ class RequestLog(models.Model):
     def __str__(self):
         """String representation of the RequestLog."""
         return f"Request from {self.ip_address} to {self.path} at {self.timestamp:%Y-%m-%d %H:%M:%S}"
+
+
+class BlockedIP(models.Model):
+    """Model to store blocked IP addresses."""
+    ip_address = models.GenericIPAddressField(unique=True)
+
+    def __str__(self):
+        """String representation of the BlockedIP."""
+        return self.ip_address
