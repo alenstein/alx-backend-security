@@ -19,3 +19,14 @@ class BlockedIP(models.Model):
     def __str__(self):
         """String representation of the BlockedIP."""
         return self.ip_address
+
+
+class SuspiciousIP(models.Model):
+    """Model to store suspicious IP addresses."""
+    ip_address = models.GenericIPAddressField(unique=True)
+    reason = models.TextField()
+
+    def __str__(self):
+        """String representation of the SuspiciousIP."""
+        return f"Suspicious IP: {self.ip_address} - {self.reason}"
+
