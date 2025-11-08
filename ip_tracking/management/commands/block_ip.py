@@ -15,6 +15,7 @@ class Command(BaseCommand):
             try:
                 # Validate that the input is a valid IP address
                 ipaddress.ip_address(ip_str)
+
                 # Create or get the BlockedIP object
                 obj, created = BlockedIP.objects.get_or_create(ip_address=ip_str)
                 if created:
